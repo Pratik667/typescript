@@ -1,0 +1,19 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <ul id="parent">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <script type="text/javascript">
+            document.getElementById('parent').addEventListener('click', (event) => {
+                if (event.target.tagName === 'LI') {
+                            console.log('You clicked on:', event.target.textContent);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capturing</title>
+</head>
+<body>
+    <div id="grandparent">
+        <div id="parent">
+          <div id="child">Click Me</div>
+        </div>
+      </div>
+      
+      <script>
+        document.getElementById('grandparent').addEventListener('click', () => {
+          console.log('Grandparent clicked (capturing phase)');
+        }, true); // Note the third parameter: true indicates capturing phase
+      
+        document.getElementById('parent').addEventListener('click', () => {
+          console.log('Parent clicked (capturing phase)');
+        }, true); // Capturing phase
+      
+        document.getElementById('child').addEventListener('click', () => {
+          console.log('Child clicked (target phase)');
+        });
+      
+        document.getElementById('parent').addEventListener('click', () => {
+          console.log('Parent clicked (bubbling phase)');
+        }); // Bubbling phase
+      
+        document.getElementById('grandparent').addEventListener('click', () => {
+          console.log('Grandparent clicked (bubbling phase)');
+        }); // Bubbling phase
+      </script>
+      
+</body>
+</html>
